@@ -1,13 +1,22 @@
-.video-container {
-  position: absolute;
+#video-container {
+  /* position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
   height: 100%; 
-  overflow: hidden;
+  overflow: hidden; */
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 80%;
+  height: 40%;
+  right: 0px;
+  padding:
+
+  /* display: 'flex', flexDirection: 'row', position: 'absolute', width: '80%', height: '40%', right: '0px', padding: '20px' */
 }
 
-.video-container video {
+#video-container video {
   /* Make video to at least 100% wide and tall */
   min-width: 100%; 
   min-height: 100%; 

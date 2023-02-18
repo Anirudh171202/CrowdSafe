@@ -17,7 +17,7 @@ const SideBar = () => {
     return (
         // TODO: Add increasing timer
         <CDBSidebar style={{width: '20%'}}>
-            <CDBSidebarHeader className='sidebar-header' >
+            <CDBSidebarHeader className='sidebar-header' prefix={<i className="fa fa-bars fa-large"></i>}>
                 <h4 style={{margin: '0px'}}>
                     Overview
                 </h4>
