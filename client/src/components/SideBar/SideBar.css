@@ -1,0 +1,26 @@
+.sidebar-container {
+    color: #fff;
+    background-color: #333;
+    height: 100%;
+}
+
+.sidebar-header {
+    padding: 0px;
+}
+
+.sidebar-subheader {
+    font-weight: 'bold';
+    font-size: '18px';
+}
+
+.sidebar-content {
+    padding: 0px;
+}
+
+.vid {
+    height: 100%;
+}
+
+.menu-item {
+    margin-bottom: '20px'
+}
