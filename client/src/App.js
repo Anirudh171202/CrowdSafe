@@ -9,7 +9,7 @@ function App() {
       <SideBar />
       <div style={{ display: 'flex', flexDirection: 'column'}}>
         <Grid />
-        <RealTimePeopleCountGraph />
+        {/* <RealTimePeopleCountGraph /> */}
       </div>
     </div>
   );

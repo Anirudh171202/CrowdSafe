@@ -1,30 +1,7 @@
 import Chart from 'react-apexcharts'
-import { useEffect, useState } from 'react'
-import { sendRandomData } from '../../api'
 
-const RealTimePeopleCountGraph = () => {
-    const [data, setData] = useState([])
-     // Fetch data from the fake API // todo: remove, this is a test
-    const fetchFici = async () => {
-        const response = await fetch('http://localhost:3000/data')
-        console.log(response);
-        response.json().then(data => {
-            setData(data)
-        })
-    }
-
-    // Call the fetchFici function every 2 seconds
-    useEffect(() => {
-        const timer = setInterval(() => {
-            fetchFici()
-        }, 2000);
-        return () => { clearInterval(timer) }
-    }, [])
-
-    useEffect(() => {
-        const timer2 = setInterval(() => { sendRandomData() }, 4000);
-        return () => { clearInterval(timer2) }
-    }, [])
+const RealTimePeopleCountGraph = ({}) => {
+    const data = [];
 
     return (
         <div>
@@ -51,7 +28,6 @@ const RealTimePeopleCountGraph = () => {
                     dataLabels: { enabled: false },
                     xaxis: {
                         categories: data?.map(data => data.time),
-
                     },
                     yaxis: {
                         show: false,
