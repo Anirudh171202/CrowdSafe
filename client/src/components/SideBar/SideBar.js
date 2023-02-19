@@ -22,7 +22,7 @@ const SideBar = () => {
         // TODO: Add increasing timer
         <Col>
             <CDBSidebar style={{backgroundColor: '#1A6391', width: 'auto'}}>
-                <CDBSidebarHeader className='sidebar-header' style={{ padding: '5px 0px' }}>
+                <CDBSidebarHeader className='sidebar-header' style={{ padding: '5px 0px', borderBottom: '0.2px solid #7090C4' }}>
                     <h4 style={{ margin: '0px', padding: '0px'}}>
                         Overview
                     </h4>
