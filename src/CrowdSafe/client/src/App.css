@@ -1,0 +1,12 @@
+html, body, div#root, #root, .app {
+  height: 100%;
+}
+
+.container-fluid {
+  padding-left: 0;
+}
+
+div.app {
+  max-width: auto;
+  flex-direction: row;
+}
