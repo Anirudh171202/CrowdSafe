@@ -3,8 +3,6 @@ import Row from 'react-bootstrap/Row';
 
 import React from 'react';
 
-import RealTimePeopleCountGraph from '../StatisticDisplay/RealTimeGraph';
-
 const Grid = ({ boundedVideo, heatMap }) => {
     
     return (
