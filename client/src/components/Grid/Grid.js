@@ -1,4 +1,5 @@
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 
 import final_output from './final_output.mp4';
@@ -6,21 +7,15 @@ import heatmap_video_boxes from './heatmap_video_boxes.mp4';
 
 const Grid = () => {
     return (
-        <Col>
-            <Card style={{margin: "30px 8%"}}>
-                <Card.Body>
-                    <video autoPlay muted style={{ objectFit: 'cover', width: '100%'}}>
+        <Col xl={9}>
+            <Row style={{ width: '100%', paddingTop: '10px' }}>
+                    <video autoPlay muted style={{ width: '50%', padding: '0px' }}>
                         <source src={heatmap_video_boxes} type="video/mp4" />
                     </video>
-                </Card.Body>
-            </Card>
-            <Card style={{margin: "30px 8%"}}>
-                <Card.Body>
-                    <video autoPlay muted style={{ objectFit: 'cover', width: '100%'}}>
+                    <video autoPlay muted style={{ width: '50%', padding: '0px' }}>
                         <source src={heatmap_video_boxes} type="video/mp4" />
                     </video>
-                </Card.Body>
-            </Card>
+            </Row>
         </Col>
     )
 }
