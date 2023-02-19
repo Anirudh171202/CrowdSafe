@@ -1,0 +1,26 @@
+.sidebar-container {
+    color: #DCCD9A;
+    background-color: #DCCD9A;
+    height: 100%;
+}
+
+.sidebar-header {
+    padding: 0px;
+}
+
+.sidebar-subheader {
+    font-weight: 'bold';
+    font-size: '18px';
+}
+
+.sidebar-content {
+    padding: 0px;
+}
+
+.vid {
+    height: 100%;
+}
+
+.menu-item {
+    margin-bottom: '20px'
+}

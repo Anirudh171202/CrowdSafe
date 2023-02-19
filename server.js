@@ -2,12 +2,17 @@ require('dotenv').config();
 
 const app = require('./app');
 const http = require('http');
+const mongoose = require('mongoose');
 
 app.set('port', process.env.PORT);
 
 var server = http.createServer(app);
 
-const port = process.env.PORT
+const database_str = process.env.DB_CONNECTION.replace('<password>', process.env.DB_PASSWORD)
+
+const port = process.env.PORT;
+
+mongoose.connect(database_str).then(con => console.log(`DB Connected!`))
 
 server.listen(port, () => {
     console.log(`Listening on port ${port}`)

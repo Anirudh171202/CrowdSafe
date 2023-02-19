@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import Dashboard from './components/Dashboard/Dashboard';
+import { Routes, Route, BrowserRouter, Switch} from "react-router-dom";
+import final_ouput from './components/Grid/final_output.mp4'
+import final_ouput_heatmap from './components/Grid/heatmap_video_boxes.mp4'
+import lightsaber_battle from './components/Grid/lightsaber_battle.mp4'
+import lightsaber_heatmap from './components/Grid/lightsaber_heatmap_full_speed.mp4'
+import drone from './components/Grid/drone_shot_final.mp4'
+import drone_heatmap from './components/Grid/drone_shot_heatmap_speed.mp4'
+
+import { useContext } from 'react';
+import DensityContext from './DensityContext';
+
 import './App.css';
 
 function App() {
+  const [densityState, setDensityState] = useContext(DensityContext);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DensityContext.Provider value={[densityState, setDensityState]}>
+      <div className='app'>
+          <Switch>
+            <Route exact path="/lightsaber" render={() => {
+              return <Dashboard boundedVideo={lightsaber_battle} heatMap={lightsaber_heatmap} peopleCount={54} starterLocation="4a5a28"/>
+            }}/>
+
+            <Route exact path="/" render={() => {
+              return <Dashboard boundedVideo={final_ouput} heatMap={final_ouput_heatmap} peopleCount={300} starterLocation="45a31a72"/>
+            }}/>
+
+            <Route exact path="/drone" render={() => {
+              return <Dashboard boundedVideo={drone} heatMap={drone_heatmap} peopleCount={300} starterLocation="45a31a72"/>
+            }} />
+          </Switch>
+      </div>
+    </DensityContext.Provider>
   );
 }
 
