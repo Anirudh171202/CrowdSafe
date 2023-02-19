@@ -1,6 +1,6 @@
 import Chart from 'react-apexcharts'
 
-const RealTimePeopleCountGraph = ({}) => {
+const RealTimePeopleCountGraph = ({ density }) => {
     const data = [];
 
     return (
@@ -11,8 +11,8 @@ const RealTimePeopleCountGraph = ({}) => {
                 width='100%'
                 series={[
                     {
-                        name: "Number of People",
-                        data: data?.map(data => data.bid)
+                        name: "Number of People in Frame",
+                        data: density
                     }
                 ]}
 
