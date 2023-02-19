@@ -15,8 +15,8 @@ import Col from 'react-bootstrap/esm/Col';
 import './SideBar.css'
 
 const SideBar = () => {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
+    const [latitude, setLatitude] = useState(0);
+    const [longitude, setLongitude] = useState(0);
     const [numPeople, setNumPeople] = useState(null);
     const [secondsElapsed, setSecondsElapsed] = useState(0);
     
@@ -28,14 +28,16 @@ const SideBar = () => {
             let data = await response.json();
     
             if (data.message === 'success') {
-                setLatitude(data.latitude);
-                setLongitude(data.longitude);
-                setNumPeople(data.peopleCount)
+                setLatitude(data.data.latitude);
+                setLongitude(data.data.longitude);
+                setNumPeople(data.data.peopleCount)
                 setSecondsElapsed(secondsElapsed + 1)
             }
         }
         
-        getResponse()
+        setTimeout(() => {
+            getResponse()
+        }, 1000)
 
     }, [latitude, longitude, numPeople, secondsElapsed])
 
@@ -44,9 +46,7 @@ const SideBar = () => {
         <Col>
             <CDBSidebar style={{backgroundColor: '#1A6391', width: 'auto'}}>
                 <CDBSidebarHeader className='sidebar-header' style={{ padding: '5px 0px', borderBottom: '0.2px solid #7090C4' }}>
-                    <h4 style={{ margin: '0px', padding: '0px'}}>
-                        Overview
-                    </h4>
+                    <h4 style={{ margin: '0px', padding: '0px'}}> Overview </h4>
                 </CDBSidebarHeader>
                 <CDBSidebarContent className="sidebar-content" style={{ paddingTop: '0px', display: 'flex', justifyContent: 'center'}}>
                     <CDBSidebarMenu style={{ padding: '24px' }}>
