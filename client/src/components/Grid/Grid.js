@@ -2,10 +2,10 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 import React, { useContext } from 'react';
-import { ScatterChart, Scatter, XAxis, 
-    YAxis, CartesianGrid } from 'recharts';
 
 import CoordinateContext from '../../CoordinateContext';
+
+import RealTimePeopleCountGraph from '../StatisticDisplay/RealTimeGraph';
 
 const Grid = ({ boundedVideo, heatMap }) => {
     const [coordinates, setCoordinates] = useContext(CoordinateContext);
@@ -25,12 +25,7 @@ const Grid = ({ boundedVideo, heatMap }) => {
                 </video>
             </Row>
             <Row>
-                <ScatterChart width={400} height={400}>
-                    <CartesianGrid />
-                    <XAxis type="number" dataKey="x" />
-                    <YAxis type="number" dataKey="y" />
-                    <Scatter data={coordinates} fill="green" />
-                </ScatterChart>
+               <RealTimePeopleCountGraph />
             </Row>
         </Col>
     )
