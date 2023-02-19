@@ -7,10 +7,10 @@ exports.getNewData = async (req, res, next) => {
 
     var [x, y, z, peopleCount] = vals.split("a");
     
-    x = mask * Math.random() * x;
-    y = mask * Math.random() * y;
-    z = mask * Math.random() * z;
-    peopleCount = Math.floor(peopleCount - ((Math.random() * 5) * mask))
+    x += mask * Math.random();
+    y += mask * Math.random();
+    z += mask * Math.random();
+    peopleCount += (Math.random() > 0.5) ? 0 : mask
     
     const doc = await GPS.create({
         x,
