@@ -3,8 +3,6 @@ import Row from 'react-bootstrap/Row';
 
 import React from 'react';
 
-import RealTimePeopleCountGraph from '../StatisticDisplay/RealTimeGraph';
-
 const Grid = ({ boundedVideo, heatMap }) => {
     
     return (
@@ -16,9 +14,6 @@ const Grid = ({ boundedVideo, heatMap }) => {
                 <video autoPlay muted style={{ width: '50%', padding: '0px' }}>
                     <source src={heatMap} type="video/mp4" />
                 </video>
-            </Row>
-            <Row>
-               <RealTimePeopleCountGraph />
             </Row>
         </Col>
     )
