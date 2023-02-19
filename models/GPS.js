@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const gpsSchema = new Schema({
-    latitude: Number,
-    longitude: Number,
+    x: Number,
+    y: Number,
+    z: Number,
     peopleCount: Number
 })
 

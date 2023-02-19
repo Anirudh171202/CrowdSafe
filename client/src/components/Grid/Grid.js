@@ -33,9 +33,6 @@ const Grid = ({ boundedVideo, heatMap }) => {
                 </ScatterChart>
             </Row>
         </Col>
-
-
-
     )
 }
 

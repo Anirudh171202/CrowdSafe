@@ -6,7 +6,7 @@ import { Activity } from 'react-bootstrap-icons'
 const StyledNavbar = () => {
   return (
     <Navbar style={{borderBottom: 'solid 2px #ECECEC', padding: '8px 30px'}} expand="lg">
-        <Navbar.Brand href="#home" style={{ paddingBottom: '0px', display: 'flex', alignItems: 'center' }}><Activity class="fa-lg" style={{ borderRadius: '50%', border: '1px solid black', marginRight: '10px', marginBottom: '4px'}} /><h3 style={{ fontWeight: '500' }}>Surge Protector</h3></Navbar.Brand>
+        <Navbar.Brand href="#home" style={{ paddingBottom: '0px', display: 'flex', alignItems: 'center' }}><Activity className="fa-lg" style={{ borderRadius: '50%', border: '1px solid black', marginRight: '10px', marginBottom: '4px'}} /><h3 style={{ fontWeight: '500' }}>Surge Protector</h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         <Nav className='ms-auto'>

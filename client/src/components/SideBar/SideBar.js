@@ -31,7 +31,7 @@ const SideBar = ({ peopleCount, starterLocation }) => {
 
     React.useEffect(() => {
         const getResponse = async () => {
-            const response = await fetch(`http://localhost:5000/data?${x}a${y}a${z}a${peopleCount}`);
+            const response = await fetch(`http://localhost:5000/data?vals=${x}a${y}a${z}a${peopleCount}`);
             let data = await response.json();
     
             if (data.message === 'success') {
@@ -69,7 +69,7 @@ const SideBar = ({ peopleCount, starterLocation }) => {
                             <h5 style={{ fontSize: '18px', fontWeight: '400'}}>{numPeople} people</h5>
                         </CDBContainer>
                         <CDBContainer style={{ marginBottom: '50px' }}>
-                            <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Hotbed Coordinates: {`X: ${x}, Y: ${y}, Z: ${z}`}</div>
+                            <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Hotbed Coordinates: <br></br>{`X: ${x}, Y: ${y}, Z: ${z}`}</div>
                         </CDBContainer>
                         <CDBContainer>
                             <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Density Tolerance (%):</div>

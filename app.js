@@ -8,9 +8,11 @@ app.enable('trust proxy');
 app.use(cors());
 app.options('*', cors());
 
-console.log('hello');
-
-app.get('/data:vals', GPSController.getNewData);
+app.get('/data', GPSController.getNewData);
 app.get('/deleteAll', GPSController.deleteAllData);
+
+app.use('/', () => {
+    console.log('hello')
+})
 
 module.exports = app;
