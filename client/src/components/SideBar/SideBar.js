@@ -7,6 +7,8 @@ import {
     CDBSlider
 } from 'cdbreact';
 
+import Button from 'react-bootstrap/Button';
+
 import { useState } from 'react'
 import Col from 'react-bootstrap/esm/Col';
 
@@ -19,7 +21,7 @@ const SideBar = () => {
     return (
         // TODO: Add increasing timer
         <Col  lg={4} >
-            <CDBSidebar>
+            <CDBSidebar style={{backgroundColor: '#1A6391'}}>
                 <CDBSidebarHeader className='sidebar-header' prefix={<i className="fa fa-bars fa-large"></i>}>
                     <h4 style={{margin: '0px'}}>
                         Overview
@@ -48,9 +50,12 @@ const SideBar = () => {
                             <h5 style={{ fontSize: '18px', fontWeight: '400'}}>A higher tolerance for density means that you will only see areas of dangerously high compaction, such as in a crowd.</h5>
                             <CDBSlider value={densityTolerance} tooltip="auto" step={10} setValue={setDensityTolerance} style={{ width: '100%' }} />
                         </CDBContainer>
+                        
                     </CDBSidebarMenu>
+                    <Button style={{margin: '5px 99px'}} variant="danger">Alert</Button>{' '}
                 </CDBSidebarContent>
             </CDBSidebar>
+            
         </Col>
     )
 }

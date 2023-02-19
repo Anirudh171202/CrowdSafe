@@ -4,6 +4,7 @@ import Grid from './components/Grid/Grid';
 import SideBar from './components/SideBar/SideBar';
 import BasicExample from './components/Navbar';
 import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
 
 function App() {
   return (
@@ -18,7 +19,5 @@ function App() {
     </div>
   );
 }
-
-/**<div style={{ display: 'flex', flexDirection: 'column'}}> */
 
 export default App;
