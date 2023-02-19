@@ -13,9 +13,6 @@ const Grid = ({ boundedVideo, heatMap }) => {
             <video autoPlay muted style={{ width: '68%', padding: '0px' }}>
                 <source src={heatMap} type="video/mp4" />
             </video>
-            {/* <Row>
-               <RealTimePeopleCountGraph />
-            </Row> */}
         </Col>
     )
 }
