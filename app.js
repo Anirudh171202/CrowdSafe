@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const axios = require('axios');
-
 const cors = require('cors');
+
+const GPSController = require('./controllers/GPSController')
 
 app.enable('trust proxy');
 app.use(cors());
@@ -10,13 +10,7 @@ app.options('*', cors());
 
 console.log('hello');
 
-app.use('/', async (req, res) => {
-    const response = await axios.get('http://127.0.0.1:5555/');
-    console.log(response.data);
-})
-
-app.use('/data', async (req, res) => {
-    
-})
+app.get('/data', GPSController.getNewData);
+app.get('/deleteAll', GPSController.deleteAllData);
 
 module.exports = app;
