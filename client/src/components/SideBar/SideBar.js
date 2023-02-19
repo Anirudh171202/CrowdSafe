@@ -10,30 +10,39 @@ import {
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import CoordinateContext from '../../CoordinateContext';
 
 import './SideBar.css'
 
 const SideBar = ({ peopleCount, starterLocation }) => {
-    const [x, setX] = useState();
-    const [y, setY] = useState();
-    const [z, setZ] = useState();
+    
+    const vals = starterLocation.split("a");
+    
+    const [x, setX] = useState(vals[0]);
+    const [y, setY] = useState(vals[1]);
+    const [z, setZ] = useState(vals[2]);
     const [numPeople, setNumPeople] = useState(peopleCount);
     const [secondsElapsed, setSecondsElapsed] = useState(0);
+
+    const [coordinates, setCoordinates] = useContext(CoordinateContext);
     
     const [densityTolerance, setDensityTolerance] = useState(80);
 
     React.useEffect(() => {
         const getResponse = async () => {
-            const response = await fetch(`http://localhost:5000/data?${starterLocation}:${peopleCount}`);
+            const response = await fetch(`http://localhost:5000/data?${x}a${y}a${z}a${peopleCount}`);
             let data = await response.json();
     
             if (data.message === 'success') {
-                setX(data.latitude);
-                setY(data.longitude);
-                setZ(data.longitude);
-                setNumPeople(data.peopleCount)
+                setX(data.data.x);
+                setY(data.data.y);
+                setZ(data.data.z);
+                setNumPeople(data.data.peopleCount)
                 setSecondsElapsed(secondsElapsed + 1)
+
+                coordinates.push({x: data.data.x, y: data.data.y})
+                setCoordinates(coordinates)
             }
         } 
         
@@ -41,10 +50,9 @@ const SideBar = ({ peopleCount, starterLocation }) => {
             getResponse()
         }, 1000)
 
-    }, [numPeople, secondsElapsed, starterLocation, peopleCount])
+    }, [numPeople, secondsElapsed, x, y, z, coordinates])
 
     return (
-        // TODO: Add increasing timer
         <Col>
             <CDBSidebar style={{backgroundColor: '#1A6391', width: 'auto'}}>
                 <CDBSidebarHeader className='sidebar-header' style={{ padding: '5px 0px', borderBottom: '0.2px solid #7090C4' }}>

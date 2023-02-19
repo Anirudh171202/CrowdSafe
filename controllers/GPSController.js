@@ -3,14 +3,19 @@ const GPS = require('../models/GPS');
 exports.getNewData = async (req, res, next) => {
     // generate latitude
     const mask = (Math.random() > 0.5) ? 1 : -1;
+    let { vals } = req.params;
+
+    var [x, y, z, peopleCount] = vals.split("a");
     
-    const latitude = mask * Math.random() * 90;
-    const longitude = mask * Math.random() * 180;
-    const peopleCount = 300 - ((Math.random() * 5) * mask)
+    x = mask * Math.random() * x;
+    y = mask * Math.random() * y;
+    z = mask * Math.random() * z;
+    peopleCount = Math.floor(peopleCount - ((Math.random() * 5) * mask))
     
     const doc = await GPS.create({
-        latitude,
-        longitude,
+        x,
+        y,
+        z,
         peopleCount
     })
     

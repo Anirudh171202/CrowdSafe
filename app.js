@@ -10,7 +10,7 @@ app.options('*', cors());
 
 console.log('hello');
 
-app.get('/data', GPSController.getNewData);
+app.get('/data:vals', GPSController.getNewData);
 app.get('/deleteAll', GPSController.deleteAllData);
 
 module.exports = app;
