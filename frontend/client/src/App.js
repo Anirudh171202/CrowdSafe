@@ -1,11 +1,11 @@
 import Dashboard from './components/Dashboard/Dashboard';
 import { Routes, Route, BrowserRouter, Switch} from "react-router-dom";
-import final_ouput from './components/Grid/final_output.mp4'
-import final_ouput_heatmap from './components/Grid/heatmap_video_boxes.mp4'
-import lightsaber_battle from './components/Grid/lightsaber_battle.mp4'
-import lightsaber_heatmap from './components/Grid/lightsaber_heatmap_full_speed.mp4'
-import drone from './components/Grid/drone_shot_final.mp4'
-import drone_heatmap from './components/Grid/drone_shot_heatmap_speed.mp4'
+import final_ouput from './videos/final_output.mp4'
+import final_ouput_heatmap from './videos/heatmap_video_boxes.mp4'
+import lightsaber_battle from './videos/lightsaber_battle.mp4'
+import lightsaber_heatmap from './videos/lightsaber_heatmap_full_speed.mp4'
+import drone from './videos/drone_shot_final.mp4'
+import drone_heatmap from './videos/drone_shot_heatmap_speed.mp4'
 
 import { useContext } from 'react';
 import DensityContext from './DensityContext';
