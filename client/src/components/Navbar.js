@@ -12,7 +12,7 @@ const StyledNavbar = () => {
         <Nav className='me-auto'>
             <Nav.Link href="/"><h4 style={{ fontSize: '18px', marginTop: '4px'}}>Home</h4></Nav.Link>
             <Nav.Link href="#link"><h4 style={{ fontSize: '18px', marginTop: '4px'}}>Messages</h4></Nav.Link>
-            <NavDropdown title="Other Videos" id="basic-nav-dropdown" style={{ fontSize: '18px', fontWeight: '450', marginTop: '1px'}}>
+            <NavDropdown title="Other Videos" id="basic-nav-dropdown" style={{ fontSize: '18px', fontWeight: '450', marginTop: '1px', zIndex: '9999'}}>
               <NavDropdown.Item href="/lightsaber">Lightsaber</NavDropdown.Item>
               <NavDropdown.Item href="/drone">Drone Footage</NavDropdown.Item>
               <NavDropdown.Divider />
