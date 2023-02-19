@@ -3,7 +3,7 @@ Solutions to keep you and your loved ones safe in a crowd. Saving lives by predi
 
 Made for Stanford TreeHacks 2023.
 
-![Demo](https://giphy.com/gifs/RKy9FLsvn4KipzMbeB)
+![Demo](https://media.giphy.com/media/RKy9FLsvn4KipzMbeB/giphy.gif)
 Devpost Link for Hackathon - https://devpost.com/submit-to/17050-treehacks-2023/manage/submissions/392405-surge-protector/
 
 
