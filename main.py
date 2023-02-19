@@ -44,7 +44,6 @@ cap = cv2.VideoCapture('/content/drive/MyDrive/TreeHacks/crowd_surge.mp4')
 writer = cv2.VideoWriter('../crowd_surge_heat_map.mp4',
                          cv2.VideoWriter_fourcc(*"DIVX"), 10, (WIDTH, HEIGHT))
 
-# heatmap_writer =
 frame_num = 0
 frames = []
 fig = plt.figure(figsize=(WIDTH/DPI, HEIGHT/DPI), dpi=DPI)
@@ -61,20 +60,9 @@ while (cap.isOpened()):
 
     frame = cv2.resize(frame, (WIDTH, HEIGHT), fx=0, fy=0,
                        interpolation=cv2.INTER_CUBIC)
-    # display(frame)
 
     img_from_opencv = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-    # display(img_from_opencv)
-    # heatmap_w_boxes_frame = find_actual_boxes(generate_heatmap)
-    # frame = cv2.resize(frame, (WIDTH, HEIGHT), fx = 0, fy = 0,
-    #                      interpolation = cv2.INTER_CUBIC)
-    # img_from_opencv = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
     plt_img = generate_heatmap(img_from_opencv, index)
-    # print(plt_img.gcf().get_size_inches()*plt_img.gcf().dpi)
-    # print(plt_img)
-    # plt_img.show()
-    # plt_img = Image.fromarray(cv2.cvtColor(plt_img, cv2.COLOR_BGR2RGB))
-
     plt_img = cv2.imread("../temp.png")
     index += 1
     frame = cv2.resize(plt_img, (WIDTH, HEIGHT), fx=0,
@@ -82,28 +70,11 @@ while (cap.isOpened()):
     print(frame.shape)
 
     writer.write(frame)
-
-    # convert plt to image for boxes
-    # img_converted = convert_plt_to_img(plt_img)
-    # cv2_imshow(plt_img)
-    # img_converted = cv2.cvtColor(np.asarray(fig.canvas.buffer_rgba()), cv2.COLOR_RGBA2BGR)
-
     heatmap_w_boxes_frame = find_actual_boxes("../temp.png")
     frame_boxes[frame_num] = heatmap_w_boxes_frame
 
-    # cv2_imshow(heatmap_w_boxes_frame)
-    # frames.append([plt_img])
-
-    # frames.append([plt_img])
-    # writer.write(heatmap_w_boxes_frame)
-    # break
-# fig.tight_layout()
 with open("frames.json", "w") as outfile:
     json.dump(frame_boxes, outfile)
-# ani = animation.ArtistAnimation(fig, frames, interval=50, blit=True,
-#                                 repeat_delay=1000)
-# ani.save('../heatmap_video_boxes.mp4')
 
-# release the video capture object
 cap.release()
 writer.release()

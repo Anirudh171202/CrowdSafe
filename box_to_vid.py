@@ -1,10 +1,10 @@
-cap = cv2.VideoCapture('/content/drive/MyDrive/TreeHacks/crowd_surge.mp4')
+cap = cv2.VideoCapture('INPUT_VIDEO')
 
 frame_no = 0
 json_file = None
 
 videoWriter = cv2.VideoWriter(
-    '../crowd_surge_final.mp4', cv2.VideoWriter_fourcc(*"DIVX"), 10, (WIDTH, HEIGHT))
+    'OUTPUT_VIDEO', cv2.VideoWriter_fourcc(*"DIVX"), 10, (WIDTH, HEIGHT))
 with open('averaging_data_new.json') as user_file:
     json_file = json.load(user_file)
 
