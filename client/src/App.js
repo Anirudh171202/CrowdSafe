@@ -1,9 +1,12 @@
 import Dashboard from './components/Dashboard/Dashboard';
 import { Routes, Route, BrowserRouter, Switch} from "react-router-dom";
-import crowd1 from './components/Grid/final_output.mp4'
-import crowd1_heatmap from './components/Grid/heatmap_video_boxes.mp4'
+import final_ouput from './components/Grid/final_output.mp4'
+import final_ouput_heatmap from './components/Grid/heatmap_video_boxes.mp4'
 import lightsaber_battle from './components/Grid/lightsaber_battle.mp4'
 import lightsaber_heatmap from './components/Grid/lightsaber_heatmap_full_speed.mp4'
+import drone from './components/Grid/drone_shot_final.mp4'
+import drone_heatmap from './components/Grid/drone_shot_heatmap_speed.mp4'
+
 import { useContext, useState} from 'react';
 import CoordinateContext from './CoordinateContext';
 
@@ -12,10 +15,6 @@ import './App.css';
 function App() {
   const [coordinateState, setCoordinateState] = useState([]);
   const [coordinates, setCoordinates] = useContext(CoordinateContext);
-
-  const MyComponent = () => {
-    
-  }
   
   return (
     <CoordinateContext.Provider value={[coordinateState, setCoordinateState]}>
@@ -26,14 +25,14 @@ function App() {
             }}/>
 
             <Route exact path="/" render={() => {
-              return <Dashboard boundedVideo={crowd1} heatMap={crowd1_heatmap} peopleCount={300} starterLocation="45a31a72"/>
+              return <Dashboard boundedVideo={final_ouput} heatMap={final_ouput_heatmap} peopleCount={300} starterLocation="45a31a72"/>
             }}/>
 
-            <Route exact path="/crowd1" render={() => {
-              return <Dashboard boundedVideo={crowd1} heatMap={crowd1_heatmap} peopleCount={300} starterLocation="45a31a72"/>
+            <Route exact path="/drone" render={() => {
+              return <Dashboard boundedVideo={drone} heatMap={drone_heatmap} peopleCount={300} starterLocation="45a31a72"/>
             }} />
             <Route exact path="/crowd2" render={() => {
-              return <Dashboard boundedVideo={crowd1} heatMap={crowd1_heatmap} peopleCount={300} starterLocation="45a31a72"/>
+              return <Dashboard boundedVideo={final_ouput} heatMap={final_ouput_heatmap} peopleCount={300} starterLocation="45a31a72"/>
             }} />
           </Switch>
       </div>
