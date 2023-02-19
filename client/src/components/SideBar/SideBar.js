@@ -11,9 +11,9 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
 import React, { useState, useContext } from 'react';
-import CoordinateContext from '../../CoordinateContext';
 
 import './SideBar.css'
+import DensityContext from '../../DensityContext';
 
 const SideBar = ({ peopleCount, starterLocation }) => {
     
@@ -25,13 +25,13 @@ const SideBar = ({ peopleCount, starterLocation }) => {
     const [numPeople, setNumPeople] = useState(peopleCount);
     const [secondsElapsed, setSecondsElapsed] = useState(0);
 
-    const [coordinates, setCoordinates] = useContext(CoordinateContext);
+    const [density, setDensity] = useContext(DensityContext);
     
     const [densityTolerance, setDensityTolerance] = useState(80);
 
     React.useEffect(() => {
         const getResponse = async () => {
-            const response = await fetch(`http://localhost:5000/data?vals=${x}a${y}a${z}a${peopleCount}`);
+            const response = await fetch(`http://localhost:5001/data?vals=${x}a${y}a${z}a${peopleCount}`);
             let data = await response.json();
     
             if (data.message === 'success') {
@@ -41,8 +41,8 @@ const SideBar = ({ peopleCount, starterLocation }) => {
                 setNumPeople(data.data.peopleCount)
                 setSecondsElapsed(secondsElapsed + 1)
 
-                coordinates.push({x: data.data.x, y: data.data.y})
-                setCoordinates(coordinates)
+                density.push({time: secondsElapsed, count: numPeople})
+                setDensity(density)
             }
         } 
         

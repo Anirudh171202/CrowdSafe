@@ -1,14 +1,11 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import React, { useContext } from 'react';
-
-import CoordinateContext from '../../CoordinateContext';
+import React from 'react';
 
 import RealTimePeopleCountGraph from '../StatisticDisplay/RealTimeGraph';
 
 const Grid = ({ boundedVideo, heatMap }) => {
-    const [coordinates, setCoordinates] = useContext(CoordinateContext);
     
     return (
         <Col xl={9}>
