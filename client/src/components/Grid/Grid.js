@@ -9,10 +9,6 @@ import CoordinateContext from '../../CoordinateContext';
 
 const Grid = ({ boundedVideo, heatMap }) => {
     const [coordinates, setCoordinates] = useContext(CoordinateContext);
-
-    React.useEffect(() => {
-        setCoordinates(coordinates);
-    }, [coordinates])
     
     return (
         <Col xl={9}>
