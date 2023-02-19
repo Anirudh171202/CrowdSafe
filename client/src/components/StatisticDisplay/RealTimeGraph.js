@@ -1,10 +1,9 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Chart from 'react-apexcharts'
 import DensityContext from '../../DensityContext';
 
 const RealTimePeopleCountGraph = () => {
     const [density, setDensity] = useContext(DensityContext);
-
     return (
         <div>
             <Chart
@@ -29,11 +28,12 @@ const RealTimePeopleCountGraph = () => {
                     stroke: { width: 1, curve: 'smooth' },
                     dataLabels: { enabled: false },
                     xaxis: {
-                        categories: density.time,
-                    },
-                    yaxis: {
-                        show: false,
-                    }
+                        // categories: density.time,
+                        type: 'numeric'                    },
+                    // yaxis: {
+                    //     // categories: density.count,
+                        
+                    // }
                 }}
             />
         </div>

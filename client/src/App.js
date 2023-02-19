@@ -7,17 +7,16 @@ import lightsaber_heatmap from './components/Grid/lightsaber_heatmap_full_speed.
 import drone from './components/Grid/drone_shot_final.mp4'
 import drone_heatmap from './components/Grid/drone_shot_heatmap_speed.mp4'
 
-import { useContext, useState} from 'react';
-import CoordinateContext from './CoordinateContext';
+import { useContext } from 'react';
+import DensityContext from './DensityContext';
 
 import './App.css';
 
 function App() {
-  const [coordinateState, setCoordinateState] = useState([]);
-  const [coordinates, setCoordinates] = useContext(CoordinateContext);
+  const [densityState, setDensityState] = useContext(DensityContext);
   
   return (
-    <CoordinateContext.Provider value={[coordinateState, setCoordinateState]}>
+    <DensityContext.Provider value={[densityState, setDensityState]}>
       <div className='app'>
           <Switch>
             <Route exact path="/lightsaber" render={() => {
@@ -31,12 +30,9 @@ function App() {
             <Route exact path="/drone" render={() => {
               return <Dashboard boundedVideo={drone} heatMap={drone_heatmap} peopleCount={300} starterLocation="45a31a72"/>
             }} />
-            <Route exact path="/crowd2" render={() => {
-              return <Dashboard boundedVideo={final_ouput} heatMap={final_ouput_heatmap} peopleCount={300} starterLocation="45a31a72"/>
-            }} />
           </Switch>
       </div>
-    </CoordinateContext.Provider>
+    </DensityContext.Provider>
   );
 }
 

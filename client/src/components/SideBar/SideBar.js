@@ -31,26 +31,30 @@ const SideBar = ({ peopleCount, starterLocation }) => {
 
     React.useEffect(() => {
         const getResponse = async () => {
-            const response = await fetch(`http://localhost:5001/data?vals=${x}a${y}a${z}a${peopleCount}`);
+            const response = await fetch(`http://localhost:5000/data?vals=${x}a${y}a${z}a${peopleCount}`);
             let data = await response.json();
     
             if (data.message === 'success') {
+                console.log(data.data);
                 setX(data.data.x);
                 setY(data.data.y);
                 setZ(data.data.z);
                 setNumPeople(data.data.peopleCount)
                 setSecondsElapsed(secondsElapsed + 1)
 
-                density.push({time: secondsElapsed, count: numPeople})
-                setDensity(density)
+                // if(density['count'] !== undefined){
+                //     density['time'].push(secondsElapsed)
+                //     density['count'].push(numPeople)
+                //     setDensity(density)
+                // }
             }
         } 
         
         setTimeout(() => {
             getResponse()
         }, 1000)
-
-    }, [numPeople, secondsElapsed, x, y, z, coordinates])
+        // , density
+    }, [numPeople, secondsElapsed, x, y, z])
 
     return (
         <Col>

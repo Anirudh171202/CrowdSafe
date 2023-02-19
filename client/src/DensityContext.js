@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DensityContext = React.createContext([{
-    coordinates: null
+    density: {time: [0], count: [0]}
 }, () => {}])
 
 export default DensityContext;
