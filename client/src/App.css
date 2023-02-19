@@ -1,14 +1,6 @@
-/*html {
+html, body, div#root, #root, .app {
   height: 100%;
 }
-
-body {
-  height: 100%;
-}
-
-div#root {
-  height: 100%;
-}*/
 
 .container-fluid {
   padding-left: 0;
@@ -17,5 +9,4 @@ div#root {
 div.app {
   max-width: auto;
   flex-direction: row;
-  background-color: #92B2C6;
 }

@@ -40,12 +40,15 @@ const SideBar = () => {
     }, [latitude, longitude, numPeople, secondsElapsed])
 
     return (
-        <Col lg={4}>
-            <CDBSidebar style={{backgroundColor: '#1A6391'}}>
-                <CDBSidebarHeader className='sidebar-header' prefix={<i className="fa fa-bars fa-large"></i>}>
-                    <h4 style={{margin: '0px'}}> Overview </h4>
+        // TODO: Add increasing timer
+        <Col>
+            <CDBSidebar style={{backgroundColor: '#1A6391', width: 'auto'}}>
+                <CDBSidebarHeader className='sidebar-header' style={{ padding: '5px 0px', borderBottom: '0.2px solid #7090C4' }}>
+                    <h4 style={{ margin: '0px', padding: '0px'}}>
+                        Overview
+                    </h4>
                 </CDBSidebarHeader>
-                <CDBSidebarContent className="sidebar-content" >
+                <CDBSidebarContent className="sidebar-content" style={{ paddingTop: '0px', display: 'flex', justifyContent: 'center'}}>
                     <CDBSidebarMenu style={{ padding: '24px' }}>
                         <CDBContainer style={{ marginBottom: '23px' }}>
                             <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Time (Seconds) Elapsed Since Detection:</div>
@@ -61,10 +64,10 @@ const SideBar = () => {
                         <CDBContainer>
                             <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Density Tolerance (%):</div>
                             <h5 style={{ fontSize: '18px', fontWeight: '400'}}>A higher tolerance for density means that you will only see areas of dangerously high compaction, such as in a crowd.</h5>
-                            <CDBSlider value={densityTolerance} tooltip="auto" step={10} setValue={setDensityTolerance} style={{ width: '100%' }} />
+                            <CDBSlider value={densityTolerance} tooltip="auto" step={10} setValue={setDensityTolerance} style={{ width: '100%', marginTop: '10px' }} />
                         </CDBContainer>
                     </CDBSidebarMenu>
-                    <Button style={{margin: '5px 99px'}} variant="danger">Alert</Button>{' '}
+                    <Button style={{ position: 'fixed', bottom: '40px', width: '20%'}} variant="danger">Alert</Button>{' '}
                 </CDBSidebarContent>
             </CDBSidebar>
         </Col>
