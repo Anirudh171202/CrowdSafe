@@ -1,4 +1,4 @@
-html {
+/*html {
   height: 100%;
 }
 
@@ -8,11 +8,14 @@ body {
 
 div#root {
   height: 100%;
+}*/
+
+.container-fluid {
+  padding-left: 0;
 }
 
 div.app {
-  height: 100%;
-  display: flex;
+  max-width: auto;
   flex-direction: row;
-  background-color: black;
+  background-color: #7e7e7e;
 }

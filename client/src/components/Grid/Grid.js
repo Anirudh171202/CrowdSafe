@@ -1,13 +1,17 @@
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 const Grid = () => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', position: 'absolute', width: '80%', height: '40%', right: '0px', padding: '20px' }}>
-            <video controls style={{ objectFit: 'cover', width: '50%' }}>
-                <source src="video.mp4" type="video/mp4" />
-            </video>
-            <video controls style={{ objectFit: 'cover', width: '50%' }}>
-                <source src="video.mp4" type="video/mp4" />
-            </video>
-        </div>
+        <Col style={{margin: '0px', padding: '0px'}} lg={8}>
+            <Col><video controls style={{ objectFit: 'cover', width: '100%'}}>
+                <source src="test.mp4" type="video/mp4" />
+            </video></Col>
+            <Col><video controls style={{ objectFit: 'cover', width: '100%' }}>
+                <source src="test.mp4" type="video/mp4" />
+            </video></Col>
+        </Col>
     )
 }
 
