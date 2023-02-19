@@ -8,36 +8,38 @@ import {
 } from 'cdbreact';
 
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
 
 import React, { useState } from 'react'
-import Col from 'react-bootstrap/esm/Col';
 
 import './SideBar.css'
 
-const SideBar = () => {
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    const [numPeople, setNumPeople] = useState(null);
+const SideBar = ({ peopleCount, starterLocation }) => {
+    const [x, setX] = useState();
+    const [y, setY] = useState();
+    const [z, setZ] = useState();
+    const [numPeople, setNumPeople] = useState(peopleCount);
     const [secondsElapsed, setSecondsElapsed] = useState(0);
     
     const [densityTolerance, setDensityTolerance] = useState(80);
 
     React.useEffect(() => {
         const getResponse = async () => {
-            const response = await fetch(`http://localhost:5000/data`);
+            const response = await fetch(`http://localhost:5000/data?${starterLocation}:${peopleCount}`);
             let data = await response.json();
     
             if (data.message === 'success') {
-                setLatitude(data.latitude);
-                setLongitude(data.longitude);
+                setX(data.latitude);
+                setY(data.longitude);
+                setZ(data.longitude);
                 setNumPeople(data.peopleCount)
                 setSecondsElapsed(secondsElapsed + 1)
             }
-        }
+        } 
         
         getResponse()
 
-    }, [latitude, longitude, numPeople, secondsElapsed])
+    }, [numPeople, secondsElapsed, starterLocation, peopleCount])
 
     return (
         // TODO: Add increasing timer
@@ -59,7 +61,7 @@ const SideBar = () => {
                             <h5 style={{ fontSize: '18px', fontWeight: '400'}}>{numPeople} people</h5>
                         </CDBContainer>
                         <CDBContainer style={{ marginBottom: '50px' }}>
-                            <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Hotbed Coordinates: {`${latitude}, ${longitude}`}</div>
+                            <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Hotbed Coordinates: {`X: ${x}, Y: ${y}, Z: ${z}`}</div>
                         </CDBContainer>
                         <CDBContainer>
                             <div style={{ fontWeight: 'bold', fontSize: '18px'}}>Density Tolerance (%):</div>
