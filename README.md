@@ -1,4 +1,5 @@
 # Surge Protector
+## Update: Winner of Best AI Hack, Stanford University TreeHacks 2023
 Solutions to keep you and your loved ones safe in a crowd. Saving lives by predicting accidents early and getting quick help for those who need it.
 
 Made for Stanford TreeHacks 2023.
